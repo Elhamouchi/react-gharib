@@ -1,0 +1,48 @@
+
+.header-first-part,  .header-first-part ul, header, .header-second-part, .header-second-part button{
+  display: flex;
+}
+
+header{
+  padding: 0 15px;
+  justify-content: space-between;
+  border-bottom: solid 2px black;
+}
+
+.header-first-part{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-first-part ul{
+  list-style: none;
+}
+.header-first-part ul li {
+  margin-left: 15px;
+}
+
+.header-second-part {
+  align-items: center;
+}
+
+.header-second-part button{
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 4px;
+  width: 88px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-second-part button span:last-child{
+  background-color: black;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

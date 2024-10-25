@@ -1,0 +1,6 @@
+.cards {
+  margin: 40px 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
