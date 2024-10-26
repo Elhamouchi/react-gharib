@@ -4,6 +4,7 @@ import { ResetButton } from "./ResetButton";
 import { PointScoredButton } from "./PointScoredButton";
 export default function App() {
   return (
+    // fiiin achabab
     <div>
       <Display />
       <div className="buttons-row">
