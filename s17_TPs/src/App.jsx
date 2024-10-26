@@ -10,6 +10,7 @@ export default function App() {
     <div>
       <Display />
       <div className="buttons-row">
+        <h2>abdellah</h2>
         <PointScoredButton playerId="player1">Point Joueur 1</PointScoredButton>
         <PointScoredButton playerId="player2">Point Joueur 2</PointScoredButton>
       </div>
