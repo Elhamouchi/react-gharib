@@ -5,6 +5,8 @@ import { PointScoredButton } from "./PointScoredButton";
 export default function App() {
   return (
     // fiiin achabab
+    // jfdskkjkf
+    // fasdjklfjkalsdjfklj
     <div>
       <Display />
       <div className="buttons-row">
