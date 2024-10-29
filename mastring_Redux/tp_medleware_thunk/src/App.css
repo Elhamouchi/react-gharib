@@ -1,10 +1,9 @@
-.container{
-margin:auto;
-margin-top:20px ;
-padding: 8px;
-width: 50%;
-border: 1px solid blueviolet;
-background-color: antiquewhite;
-box-shadow: 4px 4px rgb(232, 200, 81);
-
+.container {
+  margin: auto;
+  margin-top: 20px;
+  padding: 8px;
+  width: 50%;
+  border: 1px solid blueviolet;
+  background-color: antiquewhite;
+  box-shadow: 4px 4px rgb(232, 200, 81);
 }

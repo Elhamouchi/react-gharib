@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { fetchUsers } from "./actions/actionsFruit";
+import { fetchUsers } from "./actions/actions";
 import "./App.css";
-import UserList from "./ListFruits2";
+import UserList from "./UserList";
 
 export default function App2() {
   const dispatch = useDispatch();
@@ -17,7 +17,6 @@ export default function App2() {
         Afficher
       </button>
       <UserList />
-      {/* <button onClick={() => dispatch(vider_panier())}>vider liste</button> */}
     </div>
   );
 }

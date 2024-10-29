@@ -1,4 +1,4 @@
-import * as type from '../actions/typeActions';
+import * as type from "../actions/typeActions";
 
 const initialState = {
   loading: false,
@@ -25,7 +25,9 @@ const reducer = (state = initialState, action) => {
         users: [],
         error: action.payload,
       };
+    default:
+      return state;
   }
 };
 
-export default  reducer;
+export default reducer;
