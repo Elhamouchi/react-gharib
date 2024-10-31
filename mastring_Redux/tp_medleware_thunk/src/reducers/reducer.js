@@ -5,13 +5,17 @@ const initialState = {
   users: [],
   error: "",
 };
+
+
 const reducer = (state = initialState, action) => {
   console.log(action.type);
   switch (action.type) {
     case type.FETCH_USERS_REQUESTED:
       return {
-        ...state,
+        // ...state,
         loading: true,
+        users: [],
+        error: "",
       };
     case type.FETCH_USERS_SUCCEEDED:
       return {

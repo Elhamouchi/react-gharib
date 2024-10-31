@@ -25,10 +25,12 @@ export const fetchUsers = () => {
   return function (dispatch) {
     dispatch(fetchUsersRequest());
     axios
-      .get("https://jsonplacehlder.typicode.com/users")
+      .get("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         const users = response.data.map((user) => user.id);
-        dispatch(fetchUsersSuccess(users));
+        setTimeout(()=>{
+          dispatch(fetchUsersSuccess(users));
+        }, 1000)
       })
       .catch((error) => {
         dispatch(fetchUsersFailure(error.message));

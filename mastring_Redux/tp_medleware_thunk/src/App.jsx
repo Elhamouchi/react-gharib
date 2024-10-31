@@ -8,7 +8,7 @@ export default function App2() {
 
   return (
     <div className="container">
-      <h5>composant App 2</h5>
+      <h5>composant App</h5>
       <button
         onClick={() => {
           dispatch(fetchUsers());
