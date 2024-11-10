@@ -1,11 +1,18 @@
 import * as type from "./typeActions";
 import axios from "axios";
 
-export const registerUserRequest = () => {
+
+export const authRequest = () => {
   return {
-    type: type.REGISTER_USER_REQUEST,
+    type: type.AUTH_USER_REQUEST,
   };
-};
+} 
+
+// export const registerUserRequest = () => {
+//   return {
+//     type: type.REGISTER_USER_REQUEST,
+//   };
+// };
 
 export const registerUserSuccess = (userData) => {
   return {
@@ -23,8 +30,7 @@ export const registerUserFailure = (error) => {
 
 export const registerUser = (values) => {
   return function (dispatch) {
-    console.log("dispatch request");
-    dispatch(registerUserRequest());
+    dispatch(authRequest());
 
     axios
       .post("http://localhost:3005/auth/register", values, {
@@ -32,25 +38,22 @@ export const registerUser = (values) => {
       })
       .then((res) => {
         if (res.data.message === "Success") {
-          console.log("register successfuly");
           dispatch(registerUserSuccess());
         } else {
-          console.log("register failed");
           dispatch(registerUserFailure(res.data.message));
         }
       })
       .catch((err) => {
-        console.log("register failed");
         dispatch(registerUserFailure(err.response.data.error));
       });
   };
 };
 
-export const loginUserRequest = () => {
-  return {
-    type: type.LOGIN_USER_REQUEST,
-  };
-};
+// export const loginUserRequest = () => {
+//   return {
+//     type: type.LOGIN_USER_REQUEST,
+//   };
+// };
 
 export const loginUserSuccess = (userData) => {
   return {
@@ -68,37 +71,31 @@ export const loginUserFailure = (error) => {
 
 export const loginUser = (values) => {
   return function (dispatch) {
-    dispatch(loginUserRequest());
+    dispatch(authRequest());
     axios.defaults.withCredentials = true;
     axios
       .post("http://localhost:3005/auth/login", values)
       .then((res) => {
         if (res.data.message === "Success") {
           dispatch(
-            loginUserSuccess({
-              id: 23,
-              name: "abdellah",
-              email: "a@a.com",
-            })
+            loginUserSuccess(res.data.user)
           );
         } else {
-          console.log("then error");
           dispatch(loginUserFailure(res.data.message));
         }
       })
       .catch((err) => {
-        console.log("catch error");
         console.log(err);
         // dispatch(loginUserFailure(err.response.data.error));
       });
   };
 };
 
-export const logoutUserRequest = () => {
-  return {
-    type: type.LOGOUT_USER_REQUEST,
-  };
-};
+// export const logoutUserRequest = () => {
+//   return {
+//     type: type.LOGOUT_USER_REQUEST,
+//   };
+// };
 
 export const logoutUserSuccess = (userData) => {
   return {
@@ -116,16 +113,14 @@ export const logoutUserFailure = (error) => {
 
 export const logoutUser = () => {
   return function (dispatch) {
-    console.log("logout request");
-    dispatch(logoutUserRequest());
+    dispatch(authRequest());
     axios.defaults.withCredentials = true;
     axios
       .get("http://localhost:3005/auth/logout")
       .then((res) => {
         if (res.data.message === "Success") {
-          console.log("success");
           dispatch(
-            logoutUserSuccess({ id: 23, name: "abdellah", email: "a@a.com" })
+            logoutUserSuccess()
           );
         }
       })
@@ -134,15 +129,12 @@ export const logoutUser = () => {
 };
 
 export const verifyUserRequest = () => {
-  
-      console.log("hi from verify requist");
   return {
     type: type.VERIFY_USER_AUTHENTICATION_REQUEST,
   };
 };
 
 export const verifyUserSuccess = (userData) => {
-  console.log(" ----- hi from verify Success");
   return {
     type: type.VERIFY_USER_AUTHENTICATION_SUCCEEDED,
     payload: userData,
@@ -151,7 +143,6 @@ export const verifyUserSuccess = (userData) => {
 
 
 export const verifyUserFailure = (error) => {
-  console.log("---------- hi from verify failed");
   return {
     type: type.VERIFY_USER_AUTHENTICATION_FAILED,
     payload: error,
@@ -167,12 +158,8 @@ export const verifyUser = () => {
       .then((res) => {
         console.log("response message: ", res.data.message);
         if (res.data.message === "Success") {
-          console.log("----- we know this user");
           dispatch(
-            verifyUserSuccess(res.data.message, {
-              name: "abdellah",
-              email: "a@a.com",
-            })
+            verifyUserSuccess(res.data.message)
           );
         } else {
           console.log("from else we don't know this user");
@@ -187,3 +174,7 @@ export const verifyUser = () => {
       });
   };
 };
+
+
+
+

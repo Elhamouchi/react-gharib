@@ -9,20 +9,18 @@ function Register() {
     password: "",
   });
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isRegistered = useSelector((state) => state.register.isRegistered);
-  const regState = useSelector((state) => state.register)
-  console.log(regState);
-  useEffect(()=>{
-    if(isRegistered){
-      navigate('/login')
+  useEffect(() => {
+    if (isRegistered) {
+      navigate("/login");
     }
-  }, [dispatch, isRegistered, navigate])
+  }, [dispatch, isRegistered, navigate]);
 
   return (
-    <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
-      <div className="bg-white p-3 rounded w-25">
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="bg-white p-3 rounded w-25 border">
         <h2>Sign-Up</h2>
         <form
           onSubmit={(event) => {

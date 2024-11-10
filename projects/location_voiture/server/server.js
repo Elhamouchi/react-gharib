@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 // ---------
 
 import authRoutes from "./routes/auth.js";
+import adminRoutes from "./routes/admine.js";
 import db from "./db/connection.js";
 
 dotenv.config({ path: "./.env" });
@@ -33,6 +34,7 @@ app.use(
 
 app.use(cookieParser());
 app.use("/auth", authRoutes);
+app.use('/admin', adminRoutes)
 
 app.listen(process.env.SERVER_PORT, () => {
   console.log("server started on port", process.env.SERVER_PORT);

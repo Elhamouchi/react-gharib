@@ -63,7 +63,7 @@ const authReducer = (state = initialAuthState, action) => {
 
     case type.VERIFY_USER_AUTHENTICATION_SUCCEEDED:
       console.log("authReducer case: VERIFY_USER_AUTHENTICATION_SUCCEEDED");
-      console.log(state);
+      console.log('auth state: ', state);
       return {
         ...initialAuthState,
         isAuthenticated: true,
@@ -109,7 +109,7 @@ const initialRegisterState = {
 const registerReducer = (state = initialRegisterState, action) => {
   switch (action.type) {
     
-    case type.REGISTER_USER_REQUEST:
+    case type.AUTH_USER_REQUEST:
       
       console.log("authReducer case: REGISTER_USER_REQUEST");
       return {
